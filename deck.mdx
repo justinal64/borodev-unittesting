@@ -1,0 +1,334 @@
+import { Appear, Image, Code, Notes, Head } from "mdx-deck";
+import { FullScreenCode, SplitRight } from "mdx-deck/layouts";
+import { CodeSurfer } from "mdx-deck-code-surfer";
+export { dark as theme } from "mdx-deck/themes";
+  
+# Unit Testing your
+# front end code.
+
+```notes
+I don't know anything about fishing and I hope I don't offend angulars in the audience.
+(press *Option + P*) to start presenter mode
+```
+
+---
+
+<CodeSurfer 
+  code={require("raw-loader!./snippets/aboutme.snippet")} 
+  lang="json"
+  showNumbers={false}
+  dark={true}
+  />;
+
+<Notes>1) Read Priorities. 2) What do I say about CJC?</Notes>
+
+---
+
+# Hooks Release Date is February 4th!
+
+<img width="100%" height="600px" src="./img/hooksreleasedate.png" />
+
+# Maybe...
+
+<Notes>
+  February 4th is the official release date for Hooks!
+</Notes>
+---
+
+# Some of the questions this talk will answer
+
+<div style={{ fontSize: 60, textAlign: "left" }}>
+  <ul>
+    <Appear>
+      <li>What are hooks?</li>
+      <li>What are the Pros and Cons?</li>
+      <li>What about testing?</li>
+      <li>Should you use them?</li>
+      <li>
+        <del>What is the best lure to fish with?</del>
+      </li>
+    </Appear>
+  </ul>
+</div>
+
+---
+
+# What problem(s) are Hooks solving
+
+<div style={{ fontSize: 60, textAlign: "left" }}>
+  <ul>
+    <li>Wrapper Hell</li>
+    <li>Bloated Components</li>
+    <li>Classes can be confusing.</li>
+    <li>Duplicated logic.</li>
+    <li>HOC, Classes, Render props ... oh my!!!.</li>
+    <li>Lower barrier to entry for new devs.</li>
+  </ul>
+</div>
+
+---
+
+# What are Hooks?
+
+<img width="90%" height="600px" src="./img/captainhook.jpg" />
+
+<Notes>
+Add image to this slide?
+
+A hook is a special function that lets you "hook into" React features. Previously if you wrote a pure js function or function component
+a term the react team coined, and needed to add state you would convert the component to a class, but who wants to decide when they are creating a component that needs state?
+
+</Notes>
+
+---
+
+# Let's figure out what useState is.
+
+<Notes>
+Add image to this slide?
+
+useState is known as the State hook. If you find yourself writing a function component and you want to add state previously you would have to convert your code to use a class. Now we can use useState instead.
+
+</Notes>
+
+---
+
+# Let's count using Hooks
+
+<img width="100%" height="500px" src="./img/count.png" />
+
+---
+
+<CodeSurfer 
+  code={require("raw-loader!./snippets/usestate.snippet")} 
+  lang="javascript"
+  showNumbers={true}
+  dark={true}
+    steps={[
+    { notes: "useState allows you to use state in a function component"},
+    { tokens: {4: [1, 2, 3, 4, 5, 6, 7]}, notes: "the convention is a variable name and set + (same variable name)" },
+    { tokens: {4: [11, 12, 13, 14, 15]}, notes: "0 is the initial value" },
+    { range: [5, 6], notes: "increment adds 1 and reset resets the value back to 0" },    
+    { range: [15, 15] , notes: "Notice we aren't using this.state.count" }
+  ]}
+  />;
+
+<Notes>
+This is an example straight from the React docs. This is a simple function that increments the count and displays it to the user.
+CLICK!
+The square brackets aren't specific to react this is an example of array destructuring, which means we are creating 2 variables count and setCount.
+CLICK!
+useState requires an initial value. In this case I set it to 0 sense I'm going to increment a number. useState will return the current state, and a function to update it. In this example count is the stateful value and useCount is the function to update count.
+CLICK!
+Describe these functions
+CLICK!
+Instead of this.state.count we just refer to the variable count.
+
+Opinion
+This looks cleaner than this.state all over the place.
+
+</Notes>
+
+---
+
+# What is useEffect?
+
+<Notes>
+Add image to this slide?
+
+You can think of useEffect as a replacement for componentDidMount, componentDidUpdate and componentWillUnmount. useEffect is a way to do something after the component has rendered.
+
+</Notes>
+
+---
+
+# How wide is the screen?
+
+---
+
+<CodeSurfer 
+  code={require("raw-loader!./snippets/useeffect.snippet")} 
+  lang="javascript"
+  showNumbers={true}
+  dark={true}
+    steps={[
+    { notes: "Let's get the width of the screen." },
+    { range: [6, 12], notes: "This is a little intimidating. What the heck is going on?" },
+    { range: [7, 7], notes: "Function to update the current width of the screen." },
+    { range: [8, 8], notes: "Simple js event to listen for the screen to be resized." },    
+    { range: [9, 11] , notes: "Event(s) you want to unmount." },
+    { notes: "What would a class look like?." }
+  ]}
+  />;
+
+<Notes>
+In this example we are using useEffect to get the current width of the users screen.
+CLICK!
+At first glance useEffect looks confusing, but let's break down whats happening here.
+CLICK!
+First is a function to update the width of the users screen.
+CLICK!
+Next is a simple js eventListener that is firing this function each time it detects the screen width changing.
+CLICK!
+What's the return for? For anyone that has used subscriptions you know that once you are finished with a subscription you have to unsubscribe from them. That's exactly what we do in the return. Instead of window.removeEventListener this could have been a call to a function to unsubscribe fron an event. Another advantage of useEffect's is they do not block the browser from updating the screen, so this will make your app feel more responsive.
+
+Think about what this would look like if this was a class. You would have componentDidMount() some logic and then componentDidUnmount() with logic to unsubscribe.
+
+</Notes>
+
+---
+
+# What is useContext?
+
+<Notes>
+Add image to this slide?
+
+Before we talk about what useContext is we need to talk about the context api. The context api is a way to pass data through your app without passing props multiple levels deep.
+It can be a good alternative to redux when all your doing is passing data around.
+
+</Notes>
+
+---
+
+<Notes>
+Add image of star wars here!!!!!
+
+</Notes>
+
+---
+
+<CodeSurfer 
+  code={require("raw-loader!./snippets/usecontext.snippet")} 
+  lang="javascript"
+  showNumbers={true}
+  dark={true}
+    steps={[
+    { notes: "Example of passing data to child component." },
+    { range: [3, 3], notes: "Creating a context object...Okay what's that?" },
+    { range: [10, 16], notes: "Set the value that is passed down to child components." },
+    { range: [5, 8], notes: "Access data from the parent component." },
+    { notes: "Imagine this broke out into individual files." }
+  ]}
+  />;
+
+<Notes>
+In this example we are using setContext to show how easily data can be passed from a parent to child component(s). If your not familiar with the context API or Redux this can be a little intimidating at first glance. I'm going to try to hit some of the high points, but check the docs for more detail on the context api.
+CLICK!
+createContext creates a context object. A context object is like a store for data. You can add data in one component and access it in another component. 
+CLICK!
+The parent component App will be where the value is set. 
+CLICK!
+Display will retrieved the value from the store. 
+CLICK!
+In the example this is all in 1 file, but if this would have been a production app I would have seperated this into 1 file for the context, 1 file for the App component and 1 file for the Display component. Remember I don't have to access the value in Display. I could have easily had another component nested inside Display that was accessing the value from App.
+
+Opinion
+I feel like this is one area where React has stole an idea from angular. I think one of the pain points of React has always been how to deal with passing data around and I feel l ike the context api was a great first step and this helps make it a little more accessible.
+
+</Notes>
+
+---
+
+# Advanced Hooks
+
+---
+
+<CodeSurfer 
+  code={require("raw-loader!./snippets/advancedhook.snippet")} 
+  lang="javascript"
+  showNumbers={false}
+  dark={true}
+    steps={[
+    { notes: "Example with multiple useState and useEffects" },
+    { range: [6, 9], notes: "Multiple setState's." },
+    { range: [16, 18], notes: "Add event listeners." },
+    { range: [20, 22], notes: "Remember this replaces componentWillUnmount." },
+    { range: [26, 30], notes: "OnMount status() get's ran 1 time. Why?" },
+    { tokens: {30: [4, 5]}, notes: "What's the empty array for?" }, 
+    { notes: "What's this look like as a class?" }
+  ]}
+  />;
+
+<Notes>
+In this example we are using multiple setState's and useEffect. 
+CLICK!
+You can set setState to an initialValue. One example I have seen is declaring a variable initVal and using it for all instances of useState, then you can test for the initial value in your component to make sure it is initialized properly.
+CLICK!
+addEventlisteners 
+CLICK!
+Remember this get's fired when the component is unmounted.
+CLICK!
+In thie effect we are firing the event OnMount. If this is updating state why isn't it an infinite loop?
+CLICK!
+When you pass an empty array to useEffect it stops the effect from rerendering. If you had an array of numerous items you could pass a 2nd argument that say updates a single object going forward.
+
+Opinion
+I have to say I work in Angular all day, and we don't have console errors about memory leaks, but I'm impressed with the error messages that react emits when it detects a memory leak.
+
+</Notes>
+
+---
+
+# What is a custom Hook?
+
+---
+
+# Important notes about hooks.
+
+<div style={{ fontSize: 60, textAlign: "left" }}>
+  <ul>
+    <Appear>
+      <li>Hooks can only be called from React function components</li>
+      <li>Hooks must be called at the top level</li>
+      <li>
+        Hooks must run in the same order every time. (No conditional renders)
+      </li>
+    </Appear>
+  </ul>
+</div>
+
+---
+
+# Summary of Hooks
+
+<div style={{ fontSize: 60, textAlign: "left" }}>
+  <ul>
+    <Appear>
+      <li>Code is more readable.</li>
+      <li>Easier to test.</li>
+      <li>Faster in Prod(In Theory).</li>
+      <li>Custom Hooks could be a game changer. I hate that term!</li>
+    </Appear>
+  </ul>
+</div>
+
+<Notes>
+  Your code is more readable, because hooks allow us to break out our logic more
+  cleanly and concisely. One of the side benefits of smaller components is it is
+  a lot easier to test. Hooks are better optimez for minification, which in
+  theory should reduce the bundle size and make it a little more performant. I
+  don't think we quite understand the full potential of custom hooks. I've seem
+  a few interesting ideas around custom hooks, but I don't think we fully
+  understand what can be done yet. Last Point) Tell story about what we are
+  doing with our project at work. (Refactoring certain areas ... hitting the
+  growing pains). If your at that point with your app use hooks when you
+  refactor, but I wouldn't refactor a prod app just to use hooks.
+</Notes>
+
+---
+
+# Special Thanks
+
+<div style={{ fontSize: 60, textAlign: "left" }}>
+  <ul>
+    <li>Kevin Old</li>
+    <li>React Community</li>
+    <li>Interactive Resources for bring food</li>
+  </ul>
+</div>
+
+---
+
+# Go make something great everyone!
+
+<img width="100%" height="700px" src="./img/awesome.jpg" />
