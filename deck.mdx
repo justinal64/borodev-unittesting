@@ -143,7 +143,7 @@ export { dark as theme } from "mdx-deck/themes";
 
 ---
 
-<div style={{ fontSize: 120 }}>
+<div style={{ fontSize: 140 }}>
   <div>
     WARNING
     <div>
@@ -177,40 +177,21 @@ export { dark as theme } from "mdx-deck/themes";
 ---
 
 <div style={{ fontSize: 100 }}>
-  <div>Enough stalling let's look at some real code.</div>
+  <div>Enough stalling let's look at some real code!</div>
 </div>
 
 ---
 
-<CodeSurfer 
-  code={require("raw-loader!./snippets/usecontext.snippet")} 
-  lang="javascript"
-  showNumbers={true}
-  dark={true}
-    steps={[
-    { notes: "Example of passing data to child component." },
-    { range: [3, 3], notes: "Creating a context object...Okay what's that?" },
-    { range: [10, 16], notes: "Set the value that is passed down to child components." },
-    { range: [5, 8], notes: "Access data from the parent component." },
-    { notes: "Imagine this broke out into individual files." }
-  ]}
-  />;
-
-<Notes>
-In this example we are using setContext to show how easily data can be passed from a parent to child component(s). If your not familiar with the context API or Redux this can be a little intimidating at first glance. I'm going to try to hit some of the high points, but check the docs for more detail on the context api.
-CLICK!
-createContext creates a context object. A context object is like a store for data. You can add data in one component and access it in another component. 
-CLICK!
-The parent component App will be where the value is set. 
-CLICK!
-Display will retrieved the value from the store. 
-CLICK!
-In the example this is all in 1 file, but if this would have been a production app I would have seperated this into 1 file for the context, 1 file for the App component and 1 file for the Display component. Remember I don't have to access the value in Display. I could have easily had another component nested inside Display that was accessing the value from App.
-
-Opinion
-I feel like this is one area where React has stole an idea from angular. I think one of the pain points of React has always been how to deal with passing data around and I feel l ike the context api was a great first step and this helps make it a little more accessible.
-
-</Notes>
+<div style={{ fontSize: 100 }}>
+  <div>
+    Okay I survived the coding part
+    <div>
+      <span style={{ fontSize: 50, fontStyle: "italic" }}>
+        ...now back to my safe zone...
+      </span>
+    </div>
+  </div>
+</div>
 
 ---
 
@@ -258,31 +239,7 @@ I have to say I work in Angular all day, and we don't have console errors about 
 
 ---
 
-# Summary of Hooks
-
-<div style={{ fontSize: 60, textAlign: "left" }}>
-  <ul>
-    <Appear>
-      <li>Code is more readable.</li>
-      <li>Easier to test.</li>
-      <li>Faster in Prod(In Theory).</li>
-      <li>Custom Hooks could be a game changer. I hate that term!</li>
-    </Appear>
-  </ul>
-</div>
-
-<Notes>
-  Your code is more readable, because hooks allow us to break out our logic more
-  cleanly and concisely. One of the side benefits of smaller components is it is
-  a lot easier to test. Hooks are better optimez for minification, which in
-  theory should reduce the bundle size and make it a little more performant. I
-  don't think we quite understand the full potential of custom hooks. I've seem
-  a few interesting ideas around custom hooks, but I don't think we fully
-  understand what can be done yet. Last Point) Tell story about what we are
-  doing with our project at work. (Refactoring certain areas ... hitting the
-  growing pains). If your at that point with your app use hooks when you
-  refactor, but I wouldn't refactor a prod app just to use hooks.
-</Notes>
+<div style={{ fontSize: 100 }}>Does anyone have any questions?</div>
 
 ---
 
