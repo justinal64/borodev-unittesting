@@ -32,9 +32,9 @@ export { dark as theme } from "mdx-deck/themes";
   <ul>
       <li>What is a unit test?</li>
       <li>Why should I test my code?</li>      
-      <li>What are the Pros/Cons of unit tests?</li>
+      <li>What are the Pros/Cons of unit testing?</li>
       <li>What is TDD, BDD, DDD?</li>
-      <li>What is mock data?</li>
+      <li>Why do I need mock data?</li>
       <li>What else??????</li>      
   </ul>
 </div>
@@ -86,9 +86,10 @@ export { dark as theme } from "mdx-deck/themes";
   lang="javascript"
   showNumbers={true}
   dark={true}
+  theme={dracula}
       steps={[
     { notes: "These are the tests I would write for a simple Add function"},
-    { lines: [1], notes: "Describe is helpful to define what function is being tested. More on that in a few minutes" }, 
+    { lines: [1, 28], notes: "Describe is helpful to define what function is being tested. More on that in a few minutes" }, 
     { range: [2, 4], notes: "I always start with the most straight forward test." },    
     { range: [6, 8], notes: "I assume we want this to work with a negative number?" },
     { range: [10, 13], notes: "Writing tests forces you to think about edge cases." }, 
@@ -112,6 +113,7 @@ export { dark as theme } from "mdx-deck/themes";
   title="3 out of 6 is good enough right?"
   showNumbers={true}
   dark={true}
+  theme={dracula}
     steps={[
     { notes: "Looks like I'm half way there."},
     { range: [1, 4], notes: "Takes is to variables adds them together and returns an answer. Done!" },  
@@ -131,6 +133,7 @@ export { dark as theme } from "mdx-deck/themes";
   title="6 out of 6 is even better!"
   showNumbers={true}
   dark={true}
+  theme={dracula}
     steps={[
     { notes: ""},
     { range: [1, 6], notes: "THIS IS SPARTA.... Sorry this is real world code." },  
@@ -166,6 +169,7 @@ export { dark as theme } from "mdx-deck/themes";
   lang="javascript"
   title="Typescript Implementation of Add function"
   showNumbers={true}
+  theme={dracula}
   dark={true}
     steps={[
     { notes: "Hey that's cheating. Where are those dumb tests you had earlier???"},
