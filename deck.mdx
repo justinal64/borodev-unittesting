@@ -61,6 +61,7 @@ export { dark as theme } from "mdx-deck/themes";
   TDD is a software development process that relies on the repetition of a very
   short development cycle. 
   BDD also writes tests before code. BDD writes tests from the users perspective? More on BDD in out example.
+  What is TDD??????
   OPINION: When your boss hands you a big project... say adding an additional page to you app with a lot of logic that your going
   to have to create. My thought is to create a unit test(that fails) create the
   function to pass the test and then create the next unit test etc etc...
@@ -196,66 +197,52 @@ export { dark as theme } from "mdx-deck/themes";
 
 ---
 
-# Advanced Hooks
-
----
-
+<div style={{ fontSize: 100 }}>
+  <div>My Thoughts on Unit Testing</div>
+</div>
 <Notes>
-In this example we are using multiple setState's and useEffect. 
-CLICK!
-You can set setState to an initialValue. One example I have seen is declaring a variable initVal and using it for all instances of useState, then you can test for the initial value in your component to make sure it is initialized properly.
-CLICK!
-addEventlisteners 
-CLICK!
-Remember this get's fired when the component is unmounted.
-CLICK!
-In thie effect we are firing the event OnMount. If this is updating state why isn't it an infinite loop?
-CLICK!
-When you pass an empty array to useEffect it stops the effect from rerendering. If you had an array of numerous items you could pass a 2nd argument that say updates a single object going forward.
-
-Opinion
-I have to say I work in Angular all day, and we don't have console errors about memory leaks, but I'm impressed with the error messages that react emits when it detects a memory leak.
-
+  1) Unit testing is like picking a framework. There are a lot of options to choose from, but do your research and use the one you like best.
+  2) Like learning a new framework your going to make mistakes. Your going to write crappy tests. Keep going! 
+  3) When QA sends your code back with a bug learn from the mistake and write a test to cover the usecase they found. Testing is not going to replace QA.
+  4) The more tests you write the better your tests will be and the more bug you will catch before they get to QA or worse PROD!
+  5) TODO: What else????
 </Notes>
 
 ---
 
-# What is a custom Hook?
+<div style={{ fontSize: 100 }}>What questions can I answer?</div>
 
 ---
 
-# Important notes about hooks.
-
+<div style={{ fontSize: 100 }}>
+  <div>Special Thanks</div>
+</div>
 <div style={{ fontSize: 60, textAlign: "left" }}>
   <ul>
-    <Appear>
-      <li>Hooks can only be called from React function components</li>
-      <li>Hooks must be called at the top level</li>
-      <li>
-        Hooks must run in the same order every time. (No conditional renders)
-      </li>
-    </Appear>
+      <li>Shaun Willis</li>
+      <li>BoroDev Community</li>      
+      <li>Vaco and Charter Communications(Spectrum Reach)</li>
+      <li>My(former) co-worker at CJC for helping me come up with content for this
+      presentation. I love you guys!</li>    
   </ul>
 </div>
 
 ---
 
-<div style={{ fontSize: 100 }}>Does anyone have any questions?</div>
-
----
-
-# Special Thanks
-
+<div style={{ fontSize: 100 }}>
+  <div>Technology Used</div>
+</div>
 <div style={{ fontSize: 60, textAlign: "left" }}>
   <ul>
-    <li>Kevin Old</li>
-    <li>React Community</li>
-    <li>Interactive Resources for bring food</li>
+      <li>React</li>
+      <li>MDX-Deck for slides</li>      
+      <li>CodeSurfer for Code Highlighting</li> 
   </ul>
 </div>
 
 ---
 
-# Go make something great everyone!
-
+<div style={{ fontSize: 100 }}>
+  <div>Thank you for coming!</div>
+</div>
 <img width="100%" height="700px" src="./img/awesome.jpg" />
