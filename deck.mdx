@@ -30,106 +30,109 @@ export { dark as theme } from "mdx-deck/themes";
 </div>
 <div style={{ fontSize: 60, textAlign: "left" }}>
   <ul>
-    <Appear>
       <li>What is a unit test?</li>
-      <li>Why should I test my code?</li>
-      <li>What else?????? </li>
-    </Appear>
+      <li>Why should I test my code?</li>      
+      <li>What are the Pros/Cons of unit tests?</li>
+      <li>What is TDD, BDD, DDD?</li>
+      <li>What is mock data?</li>
+      <li>What else??????</li>      
   </ul>
 </div>
 
 ---
 
-# What problem(s) are Hooks solving
-
-<div style={{ fontSize: 60, textAlign: "left" }}>
-  <ul>
-    <li>Wrapper Hell</li>
-    <li>Bloated Components</li>
-    <li>Classes can be confusing.</li>
-    <li>Duplicated logic.</li>
-    <li>HOC, Classes, Render props ... oh my!!!.</li>
-    <li>Lower barrier to entry for new devs.</li>
-  </ul>
+<div style={{ fontSize: 100 }}>
+  <div>What is a unit test?</div>
+  <Appear>
+    <div style={{ fontSize: 60 }}>
+      UNIT TESTING is a level of software testing where individual units/
+      components of software are tested.
+    </div>
+  </Appear>
 </div>
 
 ---
 
-# What are Hooks?
+<div style={{ fontSize: 100 }}>
+  <div>What about TDD, BDD, and DDD?</div>
+</div>
+---
 
-<img width="100%" height="600px" style={{opacity: .3}}src="./img/Pacman.jpg"/>
-<div style={{ position: 'absolute', top: '250px', top: '200px', fontSize: 100, left: 0, right: 0, margin: 'auto'}}>
-    <div>Unit Testing</div>
-    <div>Your Front End Code</div>
+<div style={{ fontSize: 100 }}>
+  <div>Test Driven Development</div>
+  <Appear>
+    <div style={{ fontSize: 60, textAlign: "left" }}>
+      Boss: Can you make a function that adds 2 numbers?
+    </div>
+    <div style={{ fontSize: 60, textAlign: "left" }}>Me: Sure...</div>
+  </Appear>
 </div>
 
 <Notes>
-Add image to this slide?
-
-A hook is a special function that lets you "hook into" React features. Previously if you wrote a pure js function or function component
-a term the react team coined, and needed to add state you would convert the component to a class, but who wants to decide when they are creating a component that needs state?
-
+  TDD is a software development proess that relies on the repetition of a very
+  short development cycle. Opinion: When your boss hands you a big project...
+  say adding an additional page to you app with a lot of logic that your going
+  to have to create. My thought is to create a unit test(that fails) create the
+  function to pass the test and then create the next unit test etc etc...
 </Notes>
-
----
-
-# Let's figure out what useState is.
-
-<Notes>
-Add image to this slide?
-
-useState is known as the State hook. If you find yourself writing a function component and you want to add state previously you would have to convert your code to use a class. Now we can use useState instead.
-
-</Notes>
-
----
-
-# Let's count using Hooks
-
-<img width="100%" height="500px" src="./img/count.png" />
 
 ---
 
 <CodeSurfer 
-  code={require("raw-loader!./snippets/usestate.snippet")} 
+  code={require("raw-loader!./snippets/addtest.snippet")} 
+  title="Tests for Add Function"
   lang="javascript"
   showNumbers={true}
   dark={true}
-    steps={[
-    { notes: "useState allows you to use state in a function component"},
-    { tokens: {4: [1, 2, 3, 4, 5, 6, 7]}, notes: "the convention is a variable name and set + (same variable name)" },
-    { tokens: {4: [11, 12, 13, 14, 15]}, notes: "0 is the initial value" },
-    { range: [5, 6], notes: "increment adds 1 and reset resets the value back to 0" },    
-    { range: [15, 15] , notes: "Notice we aren't using this.state.count" }
+      steps={[
+    { notes: "These are the tests I would write for a simple Add function"},
+    { lines: [1], notes: "Describe is helpful to define what function is being tested. More on that in a few minutes" }, 
+    { range: [2, 4], notes: "I always start with the most straight forward test." },    
+    { range: [6, 8], notes: "I assume we want this to work with a negative number?" },
+    { range: [10, 13], notes: "Writing tests forces you to think about edge cases." }, 
+    { range: [15, 18], notes: "When writing tests plan for as many use cases as you can think of." },
+    { range: [20, 23], notes: "What about decimal values?" },
+    { range: [25, 27], notes: "Probably not going to happen, but what about an empty string?" }
   ]}
   />;
 
-<Notes>
-This is an example straight from the React docs. This is a simple function that increments the count and displays it to the user.
-CLICK!
-The square brackets aren't specific to react this is an example of array destructuring, which means we are creating 2 variables count and setCount.
-CLICK!
-useState requires an initial value. In this case I set it to 0 sense I'm going to increment a number. useState will return the current state, and a function to update it. In this example count is the stateful value and useCount is the function to update count.
-CLICK!
-Describe these functions
-CLICK!
-Instead of this.state.count we just refer to the variable count.
+---
 
-Opinion
-This looks cleaner than this.state all over the place.
-
-</Notes>
+<CodeSurfer 
+  code={require("raw-loader!./snippets/addfunctionfp.snippet")} 
+  lang="javascript"
+  title="3 out of 6 is good enough right?"
+  showNumbers={true}
+  dark={true}
+    steps={[
+    { notes: "Looks like I'm half way there."},
+    { range: [1, 4], notes: "Takes is to variables adds them together and returns an answer. Done!" },  
+    { range: [7, 14], notes: "My easy tests are passing." },
+    { range: [15, 18], notes: "I passed two values why the heck did it return \"12\"?" },
+    { range: [19, 22], notes: "I'll admit this probably isn't likely, but it's better to have it covered just in case." },
+    { range: [23, 26], notes: "That was easy to." },
+    { range: [27, 30], notes: "Stupid strings!!!!!" },
+  ]}
+  />;
 
 ---
 
-# What is useEffect?
-
-<Notes>
-Add image to this slide?
-
-You can think of useEffect as a replacement for componentDidMount, componentDidUpdate and componentWillUnmount. useEffect is a way to do something after the component has rendered.
-
-</Notes>
+<CodeSurfer 
+  code={require("raw-loader!./snippets/addfunctionsp.snippet")} 
+  lang="javascript"
+  title="6 out of 6 is even better!"
+  showNumbers={true}
+  dark={true}
+    steps={[
+    { notes: "I hate showing an add function that looks like this, but it's a real world scenario."},
+    { range: [1, 4], notes: "Takes is to variables adds them together and returns an answer. Done!" },  
+    { range: [7, 14], notes: "My easy tests are passing." },
+    { range: [15, 18], notes: "I passed two values why the heck did it return \"12\"?" },
+    { range: [19, 22], notes: "I'll admit this probably isn't likely, but it's better to have it covered just in case." },
+    { range: [23, 26], notes: "That was easy to." },
+    { range: [27, 30], notes: "Stupid strings!!!!!" },
+  ]}
+  />;
 
 ---
 
@@ -223,22 +226,6 @@ I feel like this is one area where React has stole an idea from angular. I think
 # Advanced Hooks
 
 ---
-
-<CodeSurfer 
-  code={require("raw-loader!./snippets/advancedhook.snippet")} 
-  lang="javascript"
-  showNumbers={false}
-  dark={true}
-    steps={[
-    { notes: "Example with multiple useState and useEffects" },
-    { range: [6, 9], notes: "Multiple setState's." },
-    { range: [16, 18], notes: "Add event listeners." },
-    { range: [20, 22], notes: "Remember this replaces componentWillUnmount." },
-    { range: [26, 30], notes: "OnMount status() get's ran 1 time. Why?" },
-    { tokens: {30: [4, 5]}, notes: "What's the empty array for?" }, 
-    { notes: "What's this look like as a class?" }
-  ]}
-  />;
 
 <Notes>
 In this example we are using multiple setState's and useEffect. 
