@@ -56,6 +56,15 @@ export { dark as theme } from "mdx-deck/themes";
 <div style={{ fontSize: 100 }}>
   <div>What about TDD, BDD, and DDD?</div>
 </div>
+
+<Notes>
+  TDD is a software development process that relies on the repetition of a very
+  short development cycle. 
+  BDD also writes tests before code. BDD writes tests from the users perspective? More on BDD in out example.
+  OPINION: When your boss hands you a big project... say adding an additional page to you app with a lot of logic that your going
+  to have to create. My thought is to create a unit test(that fails) create the
+  function to pass the test and then create the next unit test etc etc...
+</Notes>
 ---
 
 <div style={{ fontSize: 100 }}>
@@ -64,17 +73,9 @@ export { dark as theme } from "mdx-deck/themes";
     <div style={{ fontSize: 60, textAlign: "left" }}>
       Boss: Can you make a function that adds 2 numbers?
     </div>
-    <div style={{ fontSize: 60, textAlign: "left" }}>Me: Sure...</div>
+    <div style={{ fontSize: 60, textAlign: "left" }}>Me: I think so....</div>
   </Appear>
 </div>
-
-<Notes>
-  TDD is a software development proess that relies on the repetition of a very
-  short development cycle. Opinion: When your boss hands you a big project...
-  say adding an additional page to you app with a lot of logic that your going
-  to have to create. My thought is to create a unit test(that fails) create the
-  function to pass the test and then create the next unit test etc etc...
-</Notes>
 
 ---
 
@@ -95,6 +96,12 @@ export { dark as theme } from "mdx-deck/themes";
     { range: [25, 27], notes: "Probably not going to happen, but what about an empty string?" }
   ]}
   />;
+
+<Notes>
+  Using BDD we would ask. How is the user interaction with this function? Will
+  they be entering the 2 input values? If they will enter them, will the input
+  have safe guards to prevent strings, or booleans values?
+</Notes>
 
 ---
 
@@ -124,70 +131,54 @@ export { dark as theme } from "mdx-deck/themes";
   showNumbers={true}
   dark={true}
     steps={[
-    { notes: "I hate showing an add function that looks like this, but it's a real world scenario."},
-    { range: [1, 4], notes: "Takes is to variables adds them together and returns an answer. Done!" },  
-    { range: [7, 14], notes: "My easy tests are passing." },
-    { range: [15, 18], notes: "I passed two values why the heck did it return \"12\"?" },
-    { range: [19, 22], notes: "I'll admit this probably isn't likely, but it's better to have it covered just in case." },
-    { range: [23, 26], notes: "That was easy to." },
-    { range: [27, 30], notes: "Stupid strings!!!!!" },
+    { notes: ""},
+    { range: [1, 6], notes: "THIS IS SPARTA.... Sorry this is real world code." },  
+    { range: [9, 16], notes: "I added additional code and these tests are still passing. I can't tell you how much that boost my confidence in the code I'm shipping." },
+    { range: [17, 20], notes: "That's what's suppose to happen when you pass 2 strings." },
+    { range: [21, 24], notes: "Probably not going to happen, but aleast when asks you about passing boolean values you can answer confidently." },
+    { range: [25, 28], notes: "My confidence is going!" },
+    { range: [27, 30], notes: "I can even handle stupid use cases that probably won't happen." },
   ]}
   />;
 
 ---
 
-# How wide is the screen?
+<div style={{ fontSize: 120 }}>
+  <div>
+    WARNING
+    <div>
+      <span style={{ fontSize: 50, fontStyle: "italic" }}>
+        ...pulls out soap box...
+      </span>
+    </div>
+  </div>
+</div>
+
+---
+
+<img width="100%" height="800px" src="./img/typescriptmeme.jpg" />
 
 ---
 
 <CodeSurfer 
-  code={require("raw-loader!./snippets/useeffect.snippet")} 
+  code={require("raw-loader!./snippets/addfunctiontsx.snippet")} 
   lang="javascript"
+  title="Typescript Implementation of Add function"
   showNumbers={true}
   dark={true}
     steps={[
-    { notes: "Let's get the width of the screen." },
-    { range: [6, 12], notes: "This is a little intimidating. What the heck is going on?" },
-    { range: [7, 7], notes: "Function to update the current width of the screen." },
-    { range: [8, 8], notes: "Simple js event to listen for the screen to be resized." },    
-    { range: [9, 11] , notes: "Event(s) you want to unmount." },
-    { notes: "What would a class look like?." }
+    { notes: "Hey that's cheating. Where are those dumb tests you had earlier???"},
+    { range: [1, 4], notes: "Looks almost like the first implementation of the Add function written in javascript." },  
+    { tokens: {2: [10, 11, 12, 13, 14, 15, 16]}, notes: "What is :number?" },
+    { range: [6, 20], notes: "You will receive an error if you try to pass anything besides a number." }
   ]}
   />;
 
-<Notes>
-In this example we are using useEffect to get the current width of the users screen.
-CLICK!
-At first glance useEffect looks confusing, but let's break down whats happening here.
-CLICK!
-First is a function to update the width of the users screen.
-CLICK!
-Next is a simple js eventListener that is firing this function each time it detects the screen width changing.
-CLICK!
-What's the return for? For anyone that has used subscriptions you know that once you are finished with a subscription you have to unsubscribe from them. That's exactly what we do in the return. Instead of window.removeEventListener this could have been a call to a function to unsubscribe fron an event. Another advantage of useEffect's is they do not block the browser from updating the screen, so this will make your app feel more responsive.
-
-Think about what this would look like if this was a class. You would have componentDidMount() some logic and then componentDidUnmount() with logic to unsubscribe.
-
-</Notes>
-
 ---
 
-# What is useContext?
-
-<Notes>
-Add image to this slide?
-
-Before we talk about what useContext is we need to talk about the context api. The context api is a way to pass data through your app without passing props multiple levels deep.
-It can be a good alternative to redux when all your doing is passing data around.
-
-</Notes>
-
----
-
-<Notes>
-Add image of star wars here!!!!!
-
-</Notes>
+<div style={{ fontSize: 100 }}>
+  <div>Enough stalling let's look at some real code.</div>
+</div>
 
 ---
 
