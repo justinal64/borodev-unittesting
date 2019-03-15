@@ -53,28 +53,42 @@ export { dark as theme } from "mdx-deck/themes";
 ---
 
 <div style={{ fontSize: 100 }}>
-  <div>What about TDD, BDD, and DDD?</div>
+  <div>What are the different types of tests?</div>
+  <ul>
+    <div style={{ fontSize: 60, textAlign: "left" }}>
+      <Appear>
+        <li>Unit Testing</li>
+        <li>Integration Testing</li>
+        <li>End to End Testing</li>
+        <li>Automated Testing</li>
+      </Appear>
+    </div>
+  </ul>
+</div>
+
+<Notes>
+  TODO: An Integration test is determining if independently developers units or component work correctly when connected.
+  An End to End test would be a series of tests on a system. Think about logging into your banking website than checking 
+    the balance and than logging out. An end to end test would check that you logged in correctly clicked a button to check your balance and than checks to make sure you logged out correctly.
+  Automated testing is usually browser based and it would simulate the bahavior that would be expected from a real user. 
+</Notes>
+---
+
+<div style={{ fontSize: 100 }}>
+  <div>What is TDD, BDD, and DDD?</div>
 </div>
 
 <Notes>
   TDD is a software development process that relies on the repetition of a very
-  short development cycle. BDD also writes tests before code. BDD writes tests
-  from the users perspective? More on BDD in out example. TODO: What is
-  TDD?????? OPINION: When your boss hands you a big project... say adding an
-  additional page to you app with a lot of logic that your going to have to
-  create. My thought is to create a unit test(that fails) create the function to
-  pass the test and then create the next unit test etc etc...
+  short development cycle. BDD also writes tests before code, but the focus on
+  BDD is to simulate what the user would do in a prod environment? TODO: What is
+  DDD?????? OPINION: When your boss hands you a big project... say adding an
+  additional page to your app with a lot of logic that your going to have to
+  create. My thought is to create a unit test for one specific function you know
+  you will need to complete the task(that fails) create the function to pass the
+  test and then create the next unit test etc etc...
 </Notes>
 
----
-
-<div style={{ fontSize: 100 }}>
-  <div>What are the different types of tests??</div>
-</div>
-
-<Notes>
-  TODO: ???
-</Notes>
 ---
 
 <div style={{ fontSize: 100 }}>
@@ -125,11 +139,11 @@ export { dark as theme } from "mdx-deck/themes";
   theme={dracula}
     steps={[
     { notes: "Looks like I'm half way there."},
-    { range: [1, 4], notes: "Takes is to variables adds them together and returns an answer. Done!" },  
+    { range: [1, 4], notes: "Takes in two variables, adds them together and returns an answer. Done!" },  
     { range: [7, 14], notes: "My easy tests are passing." },
     { range: [15, 18], notes: "I passed two values why the heck did it return \"12\"?" },
     { range: [19, 22], notes: "I'll admit this probably isn't likely, but it's better to have it covered just in case." },
-    { range: [23, 26], notes: "That was easy to." },
+    { range: [23, 26], notes: "It passed, but I need to need to talk to my boss about how many decimal places are acceptable." },
     { range: [27, 30], notes: "Stupid strings!!!!!" },
   ]}
   />;
@@ -145,12 +159,12 @@ export { dark as theme } from "mdx-deck/themes";
   theme={dracula}
     steps={[
     { notes: ""},
-    { range: [1, 6], notes: "THIS IS SPARTA.... Sorry this is real world code." },  
-    { range: [9, 16], notes: "I added additional code and these tests are still passing. I can't tell you how much that boost my confidence in the code I'm shipping." },
+    { range: [1, 6], notes: "This is what code you find in the wild looks like." },  
+    { range: [9, 16], notes: "I added additional code and these tests are still passing. Confidence++" },
     { range: [17, 20], notes: "That's what's suppose to happen when you pass 2 strings." },
-    { range: [21, 24], notes: "Probably not going to happen, but aleast when asks you about passing boolean values you can answer confidently." },
-    { range: [25, 28], notes: "My confidence is going!" },
-    { range: [27, 30], notes: "I can even handle stupid use cases that probably won't happen." },
+    { range: [21, 24], notes: "Probably not going to happen, but atleast when someone asks you about passing boolean values you can answer confidently." },
+    { range: [25, 28], notes: "Confidence++" },
+    { range: [29, 32], notes: "I can even handle stupid use cases that probably won't happen." },
   ]}
   />;
 
@@ -216,7 +230,7 @@ export { dark as theme } from "mdx-deck/themes";
 <Notes>
   1) Unit testing is like picking a framework. There are a lot of options to choose from, but do your research and use the one you like best.
   2) Like learning a new framework your going to make mistakes. Your going to write crappy tests. Keep going! 
-  3) When QA sends your code back with a bug learn from the mistake and write a test to cover the usecase they found. Testing is not going to replace QA.
+  3) When QA sends your code back with a bug learn from the mistake and write a test to cover the usecase they found. Testing is not going to replace QA!
   4) The more tests you write the better your tests will be and the more bug you will catch before they get to QA or worse PROD!
   5) TODO: What else????
 </Notes>
