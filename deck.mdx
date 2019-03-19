@@ -32,7 +32,7 @@ export { dark as theme } from "mdx-deck/themes";
   <ul>
       <li>What is a unit test?</li>
       <li>Why should I test my code?</li>      
-      <li>What is TDD, BDD, DDD?</li>
+      <li>What is difference between TDD and BDD?</li>
       <li>What are the different types of tests?</li>
       <li>What tools do we use to write tests?</li>      
   </ul>
@@ -49,6 +49,22 @@ export { dark as theme } from "mdx-deck/themes";
     </div>
   </Appear>
 </div>
+---
+
+<div style={{ fontSize: 100 }}>
+  <div>TDD versus BDD.</div>
+</div>
+
+<Notes>
+  TDD is a software development process that relies on the repetition of a very
+  short development cycle. BDD also writes tests before code, but the focus of
+  BDD is to simulate what the user would do in a prod environment? OPINION: When
+  your boss hands you a big project... say adding an additional page to your app
+  with a lot of logic that your going to have to create. My thought is to create
+  a unit test for one specific function you know you will need to complete the
+  task(that fails) create the function to pass the test and then create the next
+  unit test etc etc...
+</Notes>
 
 ---
 
@@ -67,26 +83,14 @@ export { dark as theme } from "mdx-deck/themes";
 </div>
 
 <Notes>
-  TODO: An Integration test is determining if independently developed units or component work correctly when connected.
-  An End to End test would be a series of tests on a system. Think about logging into your banking website than checking 
-    the balance and than logging out. An end to end test would check that you logged in correctly clicked a button to check your balance and than checks to make sure you logged out correctly.
-  Automated testing is usually browser based and it would simulate the behavior that would be expected from a real user. 
-</Notes>
----
-
-<div style={{ fontSize: 100 }}>
-  <div>TDD versus BDD. Which is Better?</div>
-</div>
-
-<Notes>
-  TDD is a software development process that relies on the repetition of a very
-  short development cycle. BDD also writes tests before code, but the focus of
-  BDD is to simulate what the user would do in a prod environment? OPINION: When
-  your boss hands you a big project... say adding an additional page to your app
-  with a lot of logic that your going to have to create. My thought is to create
-  a unit test for one specific function you know you will need to complete the
-  task(that fails) create the function to pass the test and then create the next
-  unit test etc etc...
+  TODO: An Integration test is determining if independently developed units or
+  component work correctly when connected. An End to End test would be a series
+  of tests on a system. Think about logging into your banking website than
+  checking the balance and than logging out. An end to end test would check that
+  you logged in correctly clicked a button to check your balance and than checks
+  to make sure you logged out correctly. Automated testing is usually browser
+  based and it would simulate the behavior that would be expected from a real
+  user.
 </Notes>
 
 ---
@@ -250,7 +254,7 @@ export { dark as theme } from "mdx-deck/themes";
       <li>BoroDev Community</li>      
       <li>Vaco and Charter Communications(Spectrum Reach)</li>
       <li>Adabra for providing the food</li>
-      <li>My(former) co-workers at CJC for helping me come up with content for this
+      <li>My(former) co-workers at CJC for helping with the content for this
       presentation. I love you guys!</li>    
   </ul>
 </div>
@@ -261,7 +265,7 @@ export { dark as theme } from "mdx-deck/themes";
   <div>Technology Used</div>
 </div>
 <div style={{ fontSize: 60, textAlign: "left" }}>
-  <ul>
+  <ul>  
       <li>React</li>
       <li>MDX-Deck for slides</li>      
       <li>CodeSurfer for Code Highlighting</li> 
