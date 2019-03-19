@@ -2,7 +2,7 @@
 
 ```
 
-git clone git@github.com:justinal64/nashreact.git
+git clone git@github.com:justinal64/borodev-unittesting.git
 
 ```
 
