@@ -1,15 +1,16 @@
 import { Appear, Image, Code, Notes, Head } from "mdx-deck";
 import { FullScreenCode, SplitRight } from "mdx-deck/layouts";
 import { CodeSurfer } from "mdx-deck-code-surfer";
+import dracula from "prism-react-renderer/themes/dracula";
 export { dark as theme } from "mdx-deck/themes";
-  
-# Unit Testing your
-# front end code.
 
-```notes
-I don't know anything about fishing and I hope I don't offend angulars in the audience.
-(press *Option + P*) to start presenter mode
-```
+<img width="100%" height="600px" style={{opacity: .3}}src="./img/Pacman.jpg"/>
+<div style={{ position: 'absolute', top: '250px', top: '200px', fontSize: 100, left: 0, right: 0, margin: 'auto'}}>
+    <div>Unit Testing</div>
+    <div>Your Front End Code</div>
+</div>
+
+<Notes>(press *Option + P*) presenter mode</Notes>
 
 ---
 
@@ -20,315 +21,260 @@ I don't know anything about fishing and I hope I don't offend angulars in the au
   dark={true}
   />;
 
-<Notes>1) Read Priorities. 2) What do I say about CJC?</Notes>
+<Notes>1) Read Priorities. 2) What do I say about Ramsey Solutions</Notes>
 
 ---
 
-# Hooks Release Date is February 4th!
-
-<img width="100%" height="600px" src="./img/hooksreleasedate.png" />
-
-# Maybe...
-
-<Notes>
-  February 4th is the official release date for Hooks!
-</Notes>
----
-
-# Some of the questions this talk will answer
-
+<div style={{ fontSize: 100 }}>
+  <div>Some of the questions this talk will answer</div>
+</div>
 <div style={{ fontSize: 60, textAlign: "left" }}>
   <ul>
-    <Appear>
-      <li>What are hooks?</li>
-      <li>What are the Pros and Cons?</li>
-      <li>What about testing?</li>
-      <li>Should you use them?</li>
-      <li>
-        <del>What is the best lure to fish with?</del>
-      </li>
-    </Appear>
+      <li>What is a unit test?</li>
+      <li>Why should I test my code?</li>      
+      <li>What is difference between TDD and BDD?</li>
+      <li>What are the different types of tests?</li>
+      <li>What tools do we use to write tests?</li>      
   </ul>
 </div>
 
 ---
 
-# What problem(s) are Hooks solving
+<div style={{ fontSize: 100 }}>
+  <div>What is a unit test?</div>
+  <Appear>
+    <div style={{ fontSize: 60 }}>
+      UNIT TESTING is a level of software testing where individual units/
+      components of software are tested.
+    </div>
+  </Appear>
+</div>
+---
 
-<div style={{ fontSize: 60, textAlign: "left" }}>
+<div style={{ fontSize: 100 }}>
+  <div>TDD versus BDD.</div>
+</div>
+
+<Notes>
+  TDD is a software development process that relies on the repetition of a very
+  short development cycle. BDD also writes tests before code, but the focus of
+  BDD is to simulate what the user would do in a prod environment? OPINION: When
+  your boss hands you a big project... say adding an additional page to your app
+  with a lot of logic that your going to have to create. My thought is to create
+  a unit test for one specific function you know you will need to complete the
+  task(that fails) create the function to pass the test and then create the next
+  unit test etc etc...
+</Notes>
+
+---
+
+<div style={{ fontSize: 100 }}>
+  <div>What are the different types of tests?</div>
   <ul>
-    <li>Wrapper Hell</li>
-    <li>Bloated Components</li>
-    <li>Classes can be confusing.</li>
-    <li>Duplicated logic.</li>
-    <li>HOC, Classes, Render props ... oh my!!!.</li>
-    <li>Lower barrier to entry for new devs.</li>
+    <div style={{ fontSize: 60, textAlign: "left" }}>
+      <Appear>
+        <li>Unit Testing</li>
+        <li>Integration Testing</li>
+        <li>End to End Testing</li>
+        <li>Automated Testing</li>
+      </Appear>
+    </div>
   </ul>
 </div>
 
----
-
-# What are Hooks?
-
-<img width="90%" height="600px" src="./img/captainhook.jpg" />
-
 <Notes>
-Add image to this slide?
-
-A hook is a special function that lets you "hook into" React features. Previously if you wrote a pure js function or function component
-a term the react team coined, and needed to add state you would convert the component to a class, but who wants to decide when they are creating a component that needs state?
-
+  TODO: An Integration test is determining if independently developed units or
+  component work correctly when connected. An End to End test would be a series
+  of tests on a system. Think about logging into your banking website than
+  checking the balance and than logging out. An end to end test would check that
+  you logged in correctly clicked a button to check your balance and than checks
+  to make sure you logged out correctly. Automated testing is usually browser
+  based and it would simulate the behavior that would be expected from a real
+  user.
 </Notes>
 
 ---
 
-# Let's figure out what useState is.
-
-<Notes>
-Add image to this slide?
-
-useState is known as the State hook. If you find yourself writing a function component and you want to add state previously you would have to convert your code to use a class. Now we can use useState instead.
-
-</Notes>
-
----
-
-# Let's count using Hooks
-
-<img width="100%" height="500px" src="./img/count.png" />
+<div style={{ fontSize: 100 }}>
+  <div>Test Driven Development</div>
+  <Appear>
+    <div style={{ fontSize: 60, textAlign: "left" }}>
+      Boss: Can you make a function that adds 2 numbers?
+    </div>
+    <div style={{ fontSize: 60, textAlign: "left" }}>Me: I think so....</div>
+  </Appear>
+</div>
 
 ---
 
 <CodeSurfer 
-  code={require("raw-loader!./snippets/usestate.snippet")} 
+  code={require("raw-loader!./snippets/addtest.snippet")} 
+  title="Tests for Add Function"
   lang="javascript"
   showNumbers={true}
   dark={true}
-    steps={[
-    { notes: "useState allows you to use state in a function component"},
-    { tokens: {4: [1, 2, 3, 4, 5, 6, 7]}, notes: "the convention is a variable name and set + (same variable name)" },
-    { tokens: {4: [11, 12, 13, 14, 15]}, notes: "0 is the initial value" },
-    { range: [5, 6], notes: "increment adds 1 and reset resets the value back to 0" },    
-    { range: [15, 15] , notes: "Notice we aren't using this.state.count" }
+  theme={dracula}
+      steps={[
+    { notes: "These are the tests I would write for a simple Add function"},
+    { lines: [1, 28], notes: "Describe is helpful to define what function is being tested. More on that in a few minutes" }, 
+    { range: [2, 4], notes: "I always start with the most straight forward test." },    
+    { range: [6, 8], notes: "I assume we want this to work with a negative number?" },
+    { range: [10, 13], notes: "Writing tests forces you to think about edge cases." }, 
+    { range: [15, 18], notes: "When writing tests plan for as many use cases as you can think of." },
+    { range: [20, 23], notes: "What about decimal values?" },
+    { range: [25, 27], notes: "Probably not going to happen, but what about an empty string?" }
   ]}
   />;
 
 <Notes>
-This is an example straight from the React docs. This is a simple function that increments the count and displays it to the user.
-CLICK!
-The square brackets aren't specific to react this is an example of array destructuring, which means we are creating 2 variables count and setCount.
-CLICK!
-useState requires an initial value. In this case I set it to 0 sense I'm going to increment a number. useState will return the current state, and a function to update it. In this example count is the stateful value and useCount is the function to update count.
-CLICK!
-Describe these functions
-CLICK!
-Instead of this.state.count we just refer to the variable count.
-
-Opinion
-This looks cleaner than this.state all over the place.
-
+  Using BDD we would ask. How is the user interaction with this function? Will
+  they be entering the 2 input values? If they will enter them, will the input
+  have safe guards to prevent strings, or booleans values?
 </Notes>
-
----
-
-# What is useEffect?
-
-<Notes>
-Add image to this slide?
-
-You can think of useEffect as a replacement for componentDidMount, componentDidUpdate and componentWillUnmount. useEffect is a way to do something after the component has rendered.
-
-</Notes>
-
----
-
-# How wide is the screen?
 
 ---
 
 <CodeSurfer 
-  code={require("raw-loader!./snippets/useeffect.snippet")} 
+  code={require("raw-loader!./snippets/addfunctionfp.snippet")} 
   lang="javascript"
+  title="3 out of 6 is good enough right?"
   showNumbers={true}
   dark={true}
+  theme={dracula}
     steps={[
-    { notes: "Let's get the width of the screen." },
-    { range: [6, 12], notes: "This is a little intimidating. What the heck is going on?" },
-    { range: [7, 7], notes: "Function to update the current width of the screen." },
-    { range: [8, 8], notes: "Simple js event to listen for the screen to be resized." },    
-    { range: [9, 11] , notes: "Event(s) you want to unmount." },
-    { notes: "What would a class look like?." }
+    { notes: "Looks like I'm half way there."},
+    { range: [1, 4], notes: "Takes in two variables, adds them together and returns an answer. Done!" },  
+    { range: [7, 14], notes: "My easy tests are passing." },
+    { range: [15, 18], notes: "I passed two values why the heck did it return \"12\"?" },
+    { range: [19, 22], notes: "I'll admit this probably isn't likely, but it's better to have it covered just in case." },
+    { range: [23, 26], notes: "It passed, but I might to need to talk to my boss about how many decimal places are acceptable." },
+    { range: [27, 30], notes: "Stupid strings!!!!!" },
   ]}
   />;
-
-<Notes>
-In this example we are using useEffect to get the current width of the users screen.
-CLICK!
-At first glance useEffect looks confusing, but let's break down whats happening here.
-CLICK!
-First is a function to update the width of the users screen.
-CLICK!
-Next is a simple js eventListener that is firing this function each time it detects the screen width changing.
-CLICK!
-What's the return for? For anyone that has used subscriptions you know that once you are finished with a subscription you have to unsubscribe from them. That's exactly what we do in the return. Instead of window.removeEventListener this could have been a call to a function to unsubscribe fron an event. Another advantage of useEffect's is they do not block the browser from updating the screen, so this will make your app feel more responsive.
-
-Think about what this would look like if this was a class. You would have componentDidMount() some logic and then componentDidUnmount() with logic to unsubscribe.
-
-</Notes>
-
----
-
-# What is useContext?
-
-<Notes>
-Add image to this slide?
-
-Before we talk about what useContext is we need to talk about the context api. The context api is a way to pass data through your app without passing props multiple levels deep.
-It can be a good alternative to redux when all your doing is passing data around.
-
-</Notes>
-
----
-
-<Notes>
-Add image of star wars here!!!!!
-
-</Notes>
 
 ---
 
 <CodeSurfer 
-  code={require("raw-loader!./snippets/usecontext.snippet")} 
+  code={require("raw-loader!./snippets/addfunctionsp.snippet")} 
   lang="javascript"
+  title="6 out of 6 is even better!"
   showNumbers={true}
   dark={true}
+  theme={dracula}
     steps={[
-    { notes: "Example of passing data to child component." },
-    { range: [3, 3], notes: "Creating a context object...Okay what's that?" },
-    { range: [10, 16], notes: "Set the value that is passed down to child components." },
-    { range: [5, 8], notes: "Access data from the parent component." },
-    { notes: "Imagine this broke out into individual files." }
+    { notes: ""},
+    { range: [1, 6], notes: "This is what code you find in the wild looks like." },  
+    { range: [9, 16], notes: "I added additional code and these tests are still passing. Confidence++" },
+    { range: [17, 20], notes: "That's what's suppose to happen when you pass 2 strings." },
+    { range: [21, 24], notes: "Probably not going to happen, but atleast when someone asks you about passing boolean values you can answer confidently." },
+    { range: [25, 28], notes: "Confidence++" },
+    { range: [29, 32], notes: "I can even handle stupid use cases that probably won't happen." },
   ]}
   />;
 
-<Notes>
-In this example we are using setContext to show how easily data can be passed from a parent to child component(s). If your not familiar with the context API or Redux this can be a little intimidating at first glance. I'm going to try to hit some of the high points, but check the docs for more detail on the context api.
-CLICK!
-createContext creates a context object. A context object is like a store for data. You can add data in one component and access it in another component. 
-CLICK!
-The parent component App will be where the value is set. 
-CLICK!
-Display will retrieved the value from the store. 
-CLICK!
-In the example this is all in 1 file, but if this would have been a production app I would have seperated this into 1 file for the context, 1 file for the App component and 1 file for the Display component. Remember I don't have to access the value in Display. I could have easily had another component nested inside Display that was accessing the value from App.
+---
 
-Opinion
-I feel like this is one area where React has stole an idea from angular. I think one of the pain points of React has always been how to deal with passing data around and I feel l ike the context api was a great first step and this helps make it a little more accessible.
-
-</Notes>
+<div style={{ fontSize: 140 }}>
+  <div>
+    WARNING
+    <div>
+      <span style={{ fontSize: 50, fontStyle: "italic" }}>
+        ...pulls out soap box...
+      </span>
+    </div>
+  </div>
+</div>
 
 ---
 
-# Advanced Hooks
+<img width="100%" height="800px" src="./img/typescriptmeme.jpg" />
 
 ---
 
 <CodeSurfer 
-  code={require("raw-loader!./snippets/advancedhook.snippet")} 
+  code={require("raw-loader!./snippets/addfunctiontsx.snippet")} 
   lang="javascript"
-  showNumbers={false}
+  title="Typescript Implementation of Add function"
+  showNumbers={true}
+  theme={dracula}
   dark={true}
     steps={[
-    { notes: "Example with multiple useState and useEffects" },
-    { range: [6, 9], notes: "Multiple setState's." },
-    { range: [16, 18], notes: "Add event listeners." },
-    { range: [20, 22], notes: "Remember this replaces componentWillUnmount." },
-    { range: [26, 30], notes: "OnMount status() get's ran 1 time. Why?" },
-    { tokens: {30: [4, 5]}, notes: "What's the empty array for?" }, 
-    { notes: "What's this look like as a class?" }
+    { notes: "Hey that's cheating. Where are those dumb tests you had earlier???"},
+    { range: [1, 4], notes: "Looks almost like the first implementation of the Add function written in javascript." },  
+    { tokens: {2: [10, 11, 12, 13, 14, 15, 16]}, notes: "What is :number?" },
+    { range: [6, 20], notes: "You will receive an error if you try to pass anything besides a number." }
   ]}
   />;
 
+---
+
+<div style={{ fontSize: 100 }}>
+  <div>Enough stalling let's look at some real code!</div>
+</div>
+
+---
+
+<img width="100%" height="600px" src="./img/yes.gif" />
+<div style={{ fontSize: 100 }}>
+  <div>
+    I survived the coding part!!!!!
+    <div>
+      <span style={{ fontSize: 50, fontStyle: "italic" }}>
+        ...now back to my safe zone...slides...
+      </span>
+    </div>
+  </div>
+</div>
+
+---
+
+<div style={{ fontSize: 100 }}>
+  <div>My Thoughts on Unit Testing</div>
+</div>
 <Notes>
-In this example we are using multiple setState's and useEffect. 
-CLICK!
-You can set setState to an initialValue. One example I have seen is declaring a variable initVal and using it for all instances of useState, then you can test for the initial value in your component to make sure it is initialized properly.
-CLICK!
-addEventlisteners 
-CLICK!
-Remember this get's fired when the component is unmounted.
-CLICK!
-In thie effect we are firing the event OnMount. If this is updating state why isn't it an infinite loop?
-CLICK!
-When you pass an empty array to useEffect it stops the effect from rerendering. If you had an array of numerous items you could pass a 2nd argument that say updates a single object going forward.
-
-Opinion
-I have to say I work in Angular all day, and we don't have console errors about memory leaks, but I'm impressed with the error messages that react emits when it detects a memory leak.
-
+  1) Unit testing is like picking a framework. There are a lot of options to choose from, but do your research and use the one you like best.
+  2) Like learning a new framework your going to make mistakes. Your going to write crappy tests. Keep going! 
+  3) When QA sends your code back with a bug learn from the mistake and write a test to cover the usecase they found. Testing is not going to replace QA!
+  4) The more tests you write the better your tests will be and the more bugs you will catch before they get to QA or worse PROD!
+  5) TODO: What else????
 </Notes>
 
 ---
 
-# What is a custom Hook?
+<div style={{ fontSize: 100 }}>Does Anyone Have Any Questions?</div>
 
 ---
 
-# Important notes about hooks.
-
+<div style={{ fontSize: 100 }}>
+  <div>Special Thanks</div>
+</div>
 <div style={{ fontSize: 60, textAlign: "left" }}>
   <ul>
-    <Appear>
-      <li>Hooks can only be called from React function components</li>
-      <li>Hooks must be called at the top level</li>
-      <li>
-        Hooks must run in the same order every time. (No conditional renders)
-      </li>
-    </Appear>
+      <li>Shaun Willis</li>
+      <li>BoroDev Community</li>      
+      <li>Vaco and Charter Communications(Spectrum Reach)</li>
+      <li>Adabra for providing the food</li>
+      <li>My(former) co-workers at CJC for helping with the content for this
+      presentation. I love you guys!</li>    
   </ul>
 </div>
 
 ---
 
-# Summary of Hooks
-
-<div style={{ fontSize: 60, textAlign: "left" }}>
-  <ul>
-    <Appear>
-      <li>Code is more readable.</li>
-      <li>Easier to test.</li>
-      <li>Faster in Prod(In Theory).</li>
-      <li>Custom Hooks could be a game changer. I hate that term!</li>
-    </Appear>
-  </ul>
+<div style={{ fontSize: 100 }}>
+  <div>Technology Used</div>
 </div>
-
-<Notes>
-  Your code is more readable, because hooks allow us to break out our logic more
-  cleanly and concisely. One of the side benefits of smaller components is it is
-  a lot easier to test. Hooks are better optimez for minification, which in
-  theory should reduce the bundle size and make it a little more performant. I
-  don't think we quite understand the full potential of custom hooks. I've seem
-  a few interesting ideas around custom hooks, but I don't think we fully
-  understand what can be done yet. Last Point) Tell story about what we are
-  doing with our project at work. (Refactoring certain areas ... hitting the
-  growing pains). If your at that point with your app use hooks when you
-  refactor, but I wouldn't refactor a prod app just to use hooks.
-</Notes>
-
----
-
-# Special Thanks
-
 <div style={{ fontSize: 60, textAlign: "left" }}>
-  <ul>
-    <li>Kevin Old</li>
-    <li>React Community</li>
-    <li>Interactive Resources for bring food</li>
+  <ul>  
+      <li>React</li>
+      <li>MDX-Deck for slides</li>      
+      <li>CodeSurfer for Code Highlighting</li> 
   </ul>
 </div>
 
 ---
 
-# Go make something great everyone!
-
+<div style={{ fontSize: 100 }}>
+  <div>Thank you for coming!</div>
+</div>
 <img width="100%" height="700px" src="./img/awesome.jpg" />
